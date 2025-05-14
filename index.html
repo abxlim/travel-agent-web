@@ -96,7 +96,7 @@
           <div class="contact-form">
             <h2>Booking Sekarang</h2>
             <p>Mulai petualangan Anda dengan memilih tujuan perjalanan.</p>
-            <form id="inquiryForm">
+            <form>
               <div class="form-group">
                 <label for="name">Nama:</label>
                 <input type="text" id="name" placeholder="Nama Lengkap" />
@@ -124,7 +124,13 @@
                 </select>
                 <span class="error" id="destinationError"></span>
               </div>
-              <button type="submit" class="btn-primary">SEND</button>
+              <button
+                type="button"
+                onclick="validateForm()"
+                class="btn-primary"
+              >
+                SEND
+              </button>
             </form>
           </div>
         </div>

@@ -1,3 +1,39 @@
+// Function to validate the form
+function validateForm() {
+  const nameInput = document.getElementById("name").value;
+  const emailInput = document.getElementById("email").value;
+  const destinationInput = document.getElementById("destination").value;
+
+  const nameError = document.getElementById("nameError");
+  const emailError = document.getElementById("emailError");
+  const destinationError = document.getElementById("destinationError");
+
+  if (nameInput == "") {
+    /// Disini logika ketika gagal
+    nameError.textContent = "Name is required";
+  }
+  if (emailInput == "") {
+    /// Disini logika ketika gagal
+    emailError.textContent = "Email is required";
+  }
+  if (destinationInput == "") {
+    /// Disini logika ketika gagal
+    destinationError.textContent = "Destination is required";
+  } else {
+    // reset form
+    nameInput.textContent = "";
+    emailInput.textContent = "";
+    destinationInput.textContent = "";
+    // reset error
+    nameError.textContent = "";
+    emailError.textContent = "";
+    destinationError.textContent = "";
+    // alert
+    alert("Form submitted successfully");
+  }
+}
+
+// Function to slide text banner
 let indexTextBanner = 0;
 
 function nextTextBanner() {
@@ -29,7 +65,7 @@ setInterval(() => {
   nextTextBanner();
 }, 5000);
 
-// Testimonial
+// Function to slide testimonial
 let indexTestimonialBanner = 0;
 
 function nextTestimonialBanner() {
