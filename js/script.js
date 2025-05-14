@@ -1,31 +1,64 @@
-let indexBanner = 0;
+let indexTextBanner = 0;
 
-function nextBanner() {
-  indexBanner += 1;
-  showBanner();
+function nextTextBanner() {
+  indexTextBanner += 1;
+  showTextBanner();
 }
 
-function showBanner() {
-  const bannerList = document.getElementsByClassName("slide");
+function showTextBanner() {
+  const textBannerList = document.getElementsByClassName("slide-text");
 
-  // Check if indexBanner is greater than the length of the bannerList
-  if (indexBanner > bannerList.length - 1) {
-    indexBanner = 0;
+  // Check if indexTextBanner is greater than the length of the textBannerList
+  if (indexTextBanner > textBannerList.length - 1) {
+    indexTextBanner = 0;
   }
 
   // Hide banner with looping
-  for (let i = 0; i < bannerList.length; i++) {
-    bannerList[i].style = "display: none";
+  for (let i = 0; i < textBannerList.length; i++) {
+    textBannerList[i].classList.remove("active");
   }
 
   // Show the banner
-  bannerList[indexBanner].style = "display: block";
+  textBannerList[indexTextBanner].classList.add("active");
 }
 
-showBanner();
+showTextBanner();
 
-// Set interval to change the banner every 3 seconds
+// Set interval to change the banner every 5 seconds
 setInterval(() => {
-  nextBanner();
-}, 3000);
-// Function to toggle the menu
+  nextTextBanner();
+}, 5000);
+
+// Testimonial
+let indexTestimonialBanner = 0;
+
+function nextTestimonialBanner() {
+  indexTestimonialBanner += 1;
+  showTestimonialBanner();
+}
+
+function showTestimonialBanner() {
+  const testimonialBannerList = document.getElementsByClassName(
+    "testimonial-container"
+  );
+
+  // Check if indexTestimonialBanner is greater than the length of the testimonialBannerList
+  if (indexTestimonialBanner > testimonialBannerList.length - 1) {
+    indexTestimonialBanner = 0;
+  }
+
+  // Hide banner with looping
+  for (let i = 0; i < testimonialBannerList.length; i++) {
+    testimonialBannerList[i].classList.remove("active");
+  }
+
+  // Show the banner
+  testimonialBannerList[indexTestimonialBanner].classList.add("active");
+}
+
+showTestimonialBanner();
+
+// Set interval to change the banner every 5 seconds
+setInterval(() => {
+  nextTestimonialBanner();
+}, 5000);
