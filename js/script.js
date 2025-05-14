@@ -1,34 +1,49 @@
 // Function to validate the form
 function validateForm() {
-  const nameInput = document.getElementById("name").value;
-  const emailInput = document.getElementById("email").value;
-  const destinationInput = document.getElementById("destination").value;
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const destinationInput = document.getElementById("destination");
 
   const nameError = document.getElementById("nameError");
   const emailError = document.getElementById("emailError");
   const destinationError = document.getElementById("destinationError");
 
-  if (nameInput == "") {
-    /// Disini logika ketika gagal
+  let isValid = true;
+
+  // Validasi Name
+  if (nameInput.value.trim() === "") {
     nameError.textContent = "Name is required";
-  }
-  if (emailInput == "") {
-    /// Disini logika ketika gagal
-    emailError.textContent = "Email is required";
-  }
-  if (destinationInput == "") {
-    /// Disini logika ketika gagal
-    destinationError.textContent = "Destination is required";
+    isValid = false;
   } else {
-    // reset form
-    nameInput.textContent = "";
-    emailInput.textContent = "";
-    destinationInput.textContent = "";
-    // reset error
+    nameError.textContent = "";
+  }
+
+  // Validasi Email
+  if (emailInput.value.trim() === "") {
+    emailError.textContent = "Email is required";
+    isValid = false;
+  } else {
+    emailError.textContent = "";
+  }
+
+  // Validasi Destination
+  if (destinationInput.value.trim() === "") {
+    destinationError.textContent = "Destination is required";
+    isValid = false;
+  } else {
+    destinationError.textContent = "";
+  }
+
+  if (isValid) {
+    // Reset input dan error jika valid
+    nameInput.value = "";
+    emailInput.value = "";
+    destinationInput.value = "";
+
     nameError.textContent = "";
     emailError.textContent = "";
     destinationError.textContent = "";
-    // alert
+
     alert("Form submitted successfully");
   }
 }
